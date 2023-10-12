@@ -12,7 +12,7 @@ function Signup() {
   const [error, setError] = useState("");
   const { register, handleSubmit } = useForm();
 
-  const signup = async (data) => {
+  const create = async (data) => {
     setError("");
     try {
       const userData = await authService.createAccount(data);
@@ -44,15 +44,14 @@ function Signup() {
           Already have an account? &nbsp;
           <Link
             to="/login"
-            className="font-medium text-primary
-             transition-all duration-200 hover:underline "
+            className=" font-medium text-primary transition-all duration-200 hover:underline"
           >
-            Sign Up
+            Sign In
           </Link>
         </p>
 
         {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
-        <form onSubmit={handleSubmit(signup)} className="mt-8">
+        <form onSubmit={handleSubmit(create)} className="mt-8">
           <div className="space-y-5">
             <Input
               label="Full Name : "
@@ -68,7 +67,7 @@ function Signup() {
               {...register("email", {
                 required: true,
                 validate: {
-                  matchPattern: (value) =>
+                  matchPatern: (value) =>
                     /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
                     "Email address must be a valid email address",
                 },

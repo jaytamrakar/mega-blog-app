@@ -23,7 +23,7 @@ export class AuthService {
       );
       if (userAccount) {
         // another method called
-        return this.login(email, password);
+        return this.login({ email, password });
       } else {
         return userAccount;
       }
@@ -42,7 +42,7 @@ export class AuthService {
 
   async getCurrentUser() {
     try {
-      await this.account.get();
+      return await this.account.get();
     } catch (error) {
       console.log("Appwrite service ::  getCurrentUser :: error: " + error);
     }

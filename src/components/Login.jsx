@@ -25,6 +25,7 @@ function Login() {
       setError(error.message);
     }
   };
+
   return (
     <div className="flex items-center justify-center w-full">
       <div
@@ -42,8 +43,7 @@ function Login() {
           Don&apos;t have any account? &nbsp;
           <Link
             to="/signup"
-            className="font-medium text-primary
-             transition-all duration-200 hover:underline "
+            className="font-medium text-primary transition-all duration-200 hover:underline "
           >
             Sign Up
           </Link>
@@ -59,7 +59,7 @@ function Login() {
               {...register("email", {
                 required: true,
                 validate: {
-                  matchPattern: (value) =>
+                  matchPatern: (value) =>
                     /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
                     "Email address must be a valid email address",
                 },
